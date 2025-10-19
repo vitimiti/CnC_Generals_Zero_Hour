@@ -8,7 +8,6 @@ AlignConsecutiveDeclarations: Consecutive
 AlignConsecutiveMacros: Consecutive
 AlignTrailingComments: true
 AlwaysBreakTemplateDeclarations: Yes
-IndentPPDirectives: BeforeHash
 PointerAlignment: Left
 ReferenceAlignment: Left
 QualifierAlignment: Right
