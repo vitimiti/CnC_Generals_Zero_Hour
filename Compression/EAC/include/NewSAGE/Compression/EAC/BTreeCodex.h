@@ -29,34 +29,35 @@ extern "C" {
 #error "Include codex.h before btreecodex.h"
 #endif
 
+#include "NewSAGE/Compression/EAC/Codex.h"
+
 /****************************************************************/
 /*  BTR Codex                                                   */
 /****************************************************************/
 
 /* Information Functions */
 
-CODEXABOUT *GCALL BTREE_about(void);
-bool        GCALL BTREE_is(const void *compresseddata);
+CODEXABOUT* GCALL BTREE_about(void);
+bool GCALL        BTREE_is(void const* compresseddata);
 
 /* Decode Functions */
 
-int        GCALL BTREE_size(const void *compresseddata);
+int GCALL BTREE_size(void const* compresseddata);
 #ifdef __cplusplus
-int        GCALL BTREE_decode(void *dest, const void *compresseddata, int *compressedsize=0);
+int GCALL BTREE_decode(void* dest, const void* compresseddata, int* compressedsize = 0);
 #else
-int        GCALL BTREE_decode(void *dest, const void *compresseddata, int *compressedsize);
+int GCALL BTREE_decode(void* dest, const void* compresseddata, int* compressedsize);
 #endif
 
 /* Encode Functions */
 
 #ifdef __cplusplus
-int        GCALL BTREE_encode(void *compresseddata, const void *source, int sourcesize, int *opts=0);
+int GCALL BTREE_encode(void* compresseddata, const void* source, int sourcesize, int* opts = 0);
 #else
-int        GCALL BTREE_encode(void *compresseddata, const void *source, int sourcesize, int *opts);
+int GCALL BTREE_encode(void* compresseddata, const void* source, int sourcesize, int* opts);
 #endif
 
 #ifdef __cplusplus
 }
 #endif
 #endif
-

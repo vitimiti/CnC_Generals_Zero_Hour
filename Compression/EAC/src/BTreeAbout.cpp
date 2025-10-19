@@ -73,33 +73,33 @@
 /*------------------------------------------------------------------*/
 /* END ABSTRACT */
 
-#include <string.h>
-#include "codex.h"
-#include "btreecodex.h"
+#include <cstring>
+
+// clang-format off
+#include "NewSAGE/Compression/EAC/Codex.h"
+#include "NewSAGE/Compression/EAC/BTreeCodex.h"
+// clang-format on
 
 /****************************************************************/
 /*  Information Functions                                       */
 /****************************************************************/
 
-CODEXABOUT *GCALL BTREE_about(void)
-{
+CODEXABOUT* GCALL BTREE_about(void) {
     CODEXABOUT* info;
 
-    info = (CODEXABOUT*) galloc(sizeof(CODEXABOUT));
-    if (info)
-    {
+    info = (CODEXABOUT*)galloc(sizeof(CODEXABOUT));
+    if (info) {
         memset(info, 0, sizeof(CODEXABOUT));
 
-        info->signature       = QMAKEID('B','T','R','E');
-        info->size            = sizeof(CODEXABOUT);
-        info->version         = 200;    /* codex version number (200) */
-        info->decode          = 1;      /* supports decoding */
-        info->encode          = 1;      /* supports encoding */
-        info->size32          = 0;      /* supports 32 bit size field */
-        strcpy(info->versionstr,    "1.02");     /* version # */
-        strcpy(info->shorttypestr,  "btr");      /* type */
-        strcpy(info->longtypestr,   "BTree");    /* longtype */
+        info->signature = QMAKEID('B', 'T', 'R', 'E');
+        info->size      = sizeof(CODEXABOUT);
+        info->version   = 200;              /* codex version number (200) */
+        info->decode    = 1;                /* supports decoding */
+        info->encode    = 1;                /* supports encoding */
+        info->size32    = 0;                /* supports 32 bit size field */
+        strcpy(info->versionstr, "1.02");   /* version # */
+        strcpy(info->shorttypestr, "btr");  /* type */
+        strcpy(info->longtypestr, "BTree"); /* longtype */
     }
-    return(info);
+    return (info);
 }
-

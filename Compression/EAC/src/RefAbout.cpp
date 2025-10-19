@@ -73,33 +73,33 @@
 /*------------------------------------------------------------------*/
 /* END ABSTRACT */
 
-#include <string.h>
-#include "codex.h"
-#include "refcodex.h"
+#include <cstring>
+
+// clang-format off
+#include "NewSAGE/Compression/EAC/Codex.h"
+#include "NewSAGE/Compression/EAC/RefCodex.h"
+// clang-format on
 
 /****************************************************************/
 /*  Information Functions                                       */
 /****************************************************************/
 
-CODEXABOUT *GCALL REF_about(void)
-{
-    CODEXABOUT *info;
+CODEXABOUT* GCALL REF_about(void) {
+    CODEXABOUT* info;
 
-    info = (CODEXABOUT *) galloc(sizeof(CODEXABOUT));
-    if (info)
-    {
+    info = (CODEXABOUT*)galloc(sizeof(CODEXABOUT));
+    if (info) {
         memset(info, 0, sizeof(CODEXABOUT));
 
-        info->signature       = QMAKEID(0,'R','E','F');
-        info->size            = sizeof(CODEXABOUT);
-        info->version         = 200;    /* codex version number (200) */
-        info->decode          = 1;      /* supports decoding */
-        info->encode          = 1;      /* supports encoding */
-        info->size32          = 1;      /* supports 32 bit size field */
-        strcpy(info->versionstr,    "1.01");     /* version # */
-        strcpy(info->shorttypestr,  "ref");      /* type */
-        strcpy(info->longtypestr,   "Refpack");    /* longtype */
+        info->signature = QMAKEID(0, 'R', 'E', 'F');
+        info->size      = sizeof(CODEXABOUT);
+        info->version   = 200;                /* codex version number (200) */
+        info->decode    = 1;                  /* supports decoding */
+        info->encode    = 1;                  /* supports encoding */
+        info->size32    = 1;                  /* supports 32 bit size field */
+        strcpy(info->versionstr, "1.01");     /* version # */
+        strcpy(info->shorttypestr, "ref");    /* type */
+        strcpy(info->longtypestr, "Refpack"); /* longtype */
     }
-    return(info);
+    return (info);
 }
-
