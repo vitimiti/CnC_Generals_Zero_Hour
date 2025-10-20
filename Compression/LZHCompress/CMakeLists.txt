@@ -14,9 +14,8 @@ endif()
 
 target_sources(${PROJECT_NAME} PRIVATE ${SOURCES} ${HEADERS})
 
-target_include_directories(${PROJECT_NAME} PUBLIC ${PROJECT_SOURCE_DIR}/include
-                                                  ${COMMON_INCLUDE_DIRS})
+target_include_directories(${PROJECT_NAME} PUBLIC ${PROJECT_SOURCE_DIR}/include)
 
-target_link_libraries(${PROJECT_NAME} PUBLIC LZHL)
+target_link_libraries(${PROJECT_NAME} PUBLIC LZHL NewSAGE::Common)
 
 add_library(NewSAGE::Compression::LZHCompress ALIAS ${PROJECT_NAME})

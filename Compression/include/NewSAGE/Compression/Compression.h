@@ -25,7 +25,7 @@
 #ifndef __COMPRESSION_H__
 #define __COMPRESSION_H__
 
-#include "NewSAGE/BaseType.h"
+#include "NewSAGE/Common/BaseType.h"
 
 enum CompressionType {
     COMPRESSION_MIN  = 0,

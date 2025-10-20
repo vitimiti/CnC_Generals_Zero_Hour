@@ -23,7 +23,7 @@
 #ifndef __compress_h
 #define __compress_h
 
-#include "NewSAGE/BaseType.h"
+#include "NewSAGE/Common/BaseType.h"
 
 #define MAP_EXTENSION ".map"
 #define LZH_EXTENSION ".nxz"

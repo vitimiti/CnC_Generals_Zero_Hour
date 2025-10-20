@@ -10,4 +10,5 @@ list(APPEND HEADERS ${PROJECT_SOURCE_DIR}/include/NewSAGE/BaseType.h
 
 list(APPEND COMMON_INCLUDE_DIRS ${PROJECT_SOURCE_DIR}/include)
 
+add_subdirectory(${PROJECT_SOURCE_DIR}/Common)
 add_subdirectory(${PROJECT_SOURCE_DIR}/Compression)

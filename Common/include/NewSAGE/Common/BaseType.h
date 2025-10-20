@@ -149,7 +149,7 @@ typedef uint64_t UnsignedInt64; // 8 bytes
 #endif
 #endif
 
-#include "NewSAGE/Trig.h"
+#include "NewSAGE/Common/Trig.h"
 
 //-----------------------------------------------------------------------------
 typedef wchar_t WideChar; ///< multi-byte character representations
