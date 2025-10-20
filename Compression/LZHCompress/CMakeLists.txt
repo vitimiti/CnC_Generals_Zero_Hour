@@ -16,7 +16,6 @@ target_sources(${PROJECT_NAME} PRIVATE ${SOURCES} ${HEADERS})
 
 target_include_directories(${PROJECT_NAME} PUBLIC ${PROJECT_SOURCE_DIR}/include)
 
-# Link the NewSAGE interface target so its include directories and usage
-# requirements propagate to this target. Do not pass the target name as a
-# literal path to target_include_directories.
 target_link_libraries(${PROJECT_NAME} PUBLIC liblzhl NewSAGE)
+
+add_library(NewSAGE::Compression::LZHCompress ALIAS ${PROJECT_NAME})

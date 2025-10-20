@@ -26,6 +26,6 @@ target_sources(
           "${ZLIB_DIR}/infutil.c"
           "${ZLIB_DIR}/inffast.c")
 
-target_include_directories(libzlib PUBLIC ${ZLIB_DIR})
+target_include_directories(libzlib PUBLIC ${ZLIB_DIR} ${ZLIB_DIR}/../)
 
 target_compile_definitions(libzlib PUBLIC Z_PREFIX)
