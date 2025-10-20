@@ -7,10 +7,14 @@ FetchContent_Populate(
   GIT_TAG ac753eee3990a2f592bd4807ff0b30ff572c2104
   SOURCE_DIR ${ZLIB_DIR})
 
-add_library(libzlib STATIC)
+if(BUILD_SHARED_LIBS)
+  add_library(ZLib SHARED)
+else()
+  add_library(ZLib STATIC)
+endif()
 
 target_sources(
-  libzlib
+  ZLib
   PRIVATE "${ZLIB_DIR}/adler32.c"
           "${ZLIB_DIR}/compress.c"
           "${ZLIB_DIR}/crc32.c"
@@ -26,6 +30,6 @@ target_sources(
           "${ZLIB_DIR}/infutil.c"
           "${ZLIB_DIR}/inffast.c")
 
-target_include_directories(libzlib PUBLIC ${ZLIB_DIR} ${ZLIB_DIR}/../)
+target_include_directories(ZLib PUBLIC ${ZLIB_DIR} ${ZLIB_DIR}/../)
 
-target_compile_definitions(libzlib PUBLIC Z_PREFIX)
+target_compile_definitions(ZLib PUBLIC Z_PREFIX)

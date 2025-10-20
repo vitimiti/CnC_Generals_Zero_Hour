@@ -7,10 +7,14 @@ FetchContent_Populate(
   GIT_TAG dfd96e2ca64adaddb35dd4ebadd6add7d5586783
   SOURCE_DIR ${LZHL_DIR})
 
-add_library(liblzhl STATIC)
+if(BUILD_SHARED_LIBS)
+  add_library(LZHL SHARED)
+else()
+  add_library(LZHL STATIC)
+endif()
 
 target_sources(
-  liblzhl
+  LZHL
   PRIVATE "${LZHL_DIR}/_huff.h"
           "${LZHL_DIR}/_lz.h"
           "${LZHL_DIR}/_lzhl.h"
@@ -19,4 +23,4 @@ target_sources(
           "${LZHL_DIR}/Lzhl.cpp"
           "${LZHL_DIR}/lzhl.h")
 
-target_include_directories(liblzhl PUBLIC ${LZHL_DIR} ${LZHL_DIR}/..)
+target_include_directories(LZHL PUBLIC ${LZHL_DIR} ${LZHL_DIR}/..)

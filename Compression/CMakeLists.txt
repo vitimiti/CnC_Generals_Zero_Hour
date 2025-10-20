@@ -1,7 +1,7 @@
 project(NewSAGE.Compression)
 
-include(lzhl)
-include(zlib)
+include(LZHL)
+include(ZLib)
 
 add_subdirectory(${PROJECT_SOURCE_DIR}/EAC)
 add_subdirectory(${PROJECT_SOURCE_DIR}/LZHCompress)
@@ -23,4 +23,4 @@ target_include_directories(${PROJECT_NAME} PUBLIC ${PROJECT_SOURCE_DIR}/include)
 
 target_link_libraries(
   ${PROJECT_NAME} PUBLIC NewSAGE::Compression::EAC
-                         NewSAGE::Compression::LZHCompress libzlib)
+                         NewSAGE::Compression::LZHCompress ZLib)
