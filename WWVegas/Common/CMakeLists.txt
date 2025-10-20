@@ -1,0 +1,1 @@
+project(NewSAGE.WWVegas.Common)
