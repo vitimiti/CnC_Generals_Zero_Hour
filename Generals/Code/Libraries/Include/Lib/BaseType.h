@@ -82,6 +82,11 @@
 // 'unreferenced local variable'. good thing to know about...
 #pragma warning(error : 4101)
 
+#elif defined(__GNUC__) // GNU C/C++ compiler
+
+// 'narrowing' warning.
+#pragma GCC diagnostic ignored "-Wnarrowing"
+
 #endif // _MSC_VER
 
 #ifndef PI
@@ -114,6 +119,14 @@
 #ifndef FALSE
 #define FALSE false
 #endif
+
+#ifndef __forceinline
+#ifdef __GNUC__
+#define __forceinline __attribute__((always_inline)) inline
+#else
+#define __forceinline inline
+#endif // __GNUC__
+#endif // __forceinline
 
 //--------------------------------------------------------------------
 // Fundamental type definitions
@@ -192,12 +205,24 @@ inline Real deg2rad(Real rad)
 // code, so use this function with caution -- it might not round in the way you want.
 __forceinline long fast_float2long_round(float f)
 {
+#ifdef _MSC_VER
     long i;
 
     __asm {
 		fld [f]
 		fistp [i]
     }
+#else
+    int i32;
+
+    __asm__ __volatile__("flds %1\n\t"
+                         "fistpl %0"
+                         : "=m"(i32)
+                         : "m"(f)
+                         : "st");
+
+    long i = static_cast<long>(i32);
+#endif // _MSC_VER
 
     return i;
 }
