@@ -1,0 +1,6 @@
+BasedOnStyle: Microsoft
+InsertNewlineAtEOF: true
+ColumnLimit: 100
+PointerAlignment: Left
+ReferenceAlignment: Left
+QualifierAlignment: Right
