@@ -17,9 +17,14 @@ if(CMAKE_BUILD_TYPE STREQUAL "Debug")
     add_definitions(-D_DEBUG)
 endif()
 
-if(CNC_INTERNAL)
+# Only one of INTERNAL or DEBUG!
+if(CNC_INTERNAL AND NOT CMAKE_BUILD_TYPE STREQUAL "Debug")
     add_definitions(-D_INTERNAL)
 endif()
+
+set(BUILD_SHARED_LIBS OFF)
+
+include(cmake/FetchSDL.cmake)
 
 add_subdirectory(Generals)
 
