@@ -8,6 +8,7 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 set(CMAKE_CXX_EXTENSIONS OFF)
 set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 
+option(CNC_BUILD_GENERALS "Build the Generals module" ON)
 option(CNC_INTERNAL "Enable internal build" OFF)
 
 message(STATUS "Configuring ${PROJECT_NAME}...")
@@ -25,5 +26,9 @@ endif()
 set(BUILD_SHARED_LIBS ON)
 
 include(cmake/FetchSDL.cmake)
+
+if(CNC_BUILD_GENERALS)
+    add_subdirectory(Generals)
+endif()
 
 message(STATUS "Finished configuring ${PROJECT_NAME}")
